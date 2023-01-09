@@ -57,6 +57,7 @@ public class ServiceHelper {
     private IDeviceInfo iDeviceInfo;
 
     private ISmartCardReader iSmartCardReader;
+    private boolean isServiceConnected = false;
 
     OnServiceConnectedListener onServiceConnectedListener;
 
@@ -65,6 +66,7 @@ public class ServiceHelper {
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.d(TAG, "onServiceConnected, ServiceHelper init");
             deviceService = IDeviceService.Stub.asInterface(service);
+            isServiceConnected = true;
 
             getAllDeviceInstance(deviceService);
 
