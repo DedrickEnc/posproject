@@ -11,12 +11,18 @@ import com.dedrick.utilities.ServiceHelper;
 
 public class POSVeri extends AppCompatActivity {
     private static final String TAG = "POSVeri";
+    private static Boolean isCreated = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        System.out.println("Activity is now Resumed !!!!!!!!!!!!");
+        Intent intent = getIntent();
         ServiceHelper.getInstance().initServiceHelper(getApplication());
         ServiceHelper.getInstance().setOnServiceConnectedListener(new ServiceHelper.OnServiceConnectedListener() {
             @Override
@@ -31,7 +37,6 @@ public class POSVeri extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         System.out.println("Activity is now Paused!!!!!!!!!!!!");
-        finish();
     }
 
     @Override
