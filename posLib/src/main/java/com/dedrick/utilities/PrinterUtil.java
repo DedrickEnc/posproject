@@ -63,43 +63,50 @@ public class PrinterUtil {
         return bundle;
     }
 
-    public static void printTransaction(){
-        Log.i(TAG,"testtest");
-        iPrinter = ServiceHelper.getInstance().getPrinter();
+    public static void printTransaction(String bank, String bankingAgent, String activityPoint, String transactionType, String account_number,String stan, String created_at, String currency, String main_amount){
 
+        iPrinter = ServiceHelper.getInstance().getPrinter();
             try {
 
-                iPrinter.addTextInLine(formatBold(), "", "UBA", "", 0);
-                iPrinter.addText(formatNormal(), "------------------------------------------------"); //CUT
+                iPrinter.addTextInLine(formatBold(), "", bank, "", 0);
+                iPrinter.addText(formatNormal(), "------------------------------------------------");
                 iPrinter.feedLine(1);
 
-                iPrinter.addTextInLine(formatBold(), "MARCHAND","", "NOM MARCHAND", 0);  // TERMINAL NO
-                iPrinter.addTextInLine(formatBold(), "CLIENT","", "NOM CLIENT",  0);  // MERCHANT NO.
+                iPrinter.addTextInLine(formatBold(), "BANKING AGENT","", bankingAgent+ ":"+activityPoint, 0);
+                iPrinter.addTextInLine(formatBold(), "TX TYPE","", transactionType,  0);
+                iPrinter.addTextInLine(formatBold(), "TX NUM","", stan,  0);
+                iPrinter.addTextInLine(formatBold(), "TX DATE","", created_at,  0);
+                iPrinter.addTextInLine(formatBold(), "ACCOUNT NUMBER","", account_number,  0);
+                iPrinter.addTextInLine(formatBold(), "CURRENCY","", currency,  0);
+                iPrinter.addTextInLine(formatBold(), "AMOUNT","", main_amount,  0);
                 iPrinter.feedLine(2);
 
-                iPrinter.addTextInLine(formatBold(), "", "Montant", "", 0); /// SIGNATURE
-                iPrinter.addTextInLine(formatBold(), "", "", "", 0); /// SIGNATURE
-                iPrinter.addTextInLine(formatBold(), "", "20.000", "", 0); /// SIGNATURE
-                iPrinter.feedLine(2);
-
-                iPrinter.addTextInLine(formatBold(), "REFERENCE",  "NUMERO REFERENCE", "", 0);  // OPERATION NAME.
-                iPrinter.feedLine(2);
-
-                iPrinter.addTextInLine(formatBold(), "DATE", "", "DATE", 0); /// SIGNATURE
-                iPrinter.feedLine(2);
-
-                iPrinter.addText(formatNormal(), "---------X-----------X--------------X-----------"); //CUT
+                iPrinter.addText(formatNormal(), "---------X-----------X--------------X-----------");
                 iPrinter.feedLine(4);
+
+                iPrinter.addTextInLine(formatBold(), "", bank, "", 0);
+                iPrinter.addTextInLine(formatBold(), "", "--COPY--", "", 0);
+                iPrinter.addText(formatNormal(), "------------------------------------------------");
+                iPrinter.feedLine(1);
+
+                iPrinter.addTextInLine(formatBold(), "BANKING AGENT","", bankingAgent+ ":"+activityPoint, 0);
+                iPrinter.addTextInLine(formatBold(), "TX TYPE","", transactionType,  0);
+                iPrinter.addTextInLine(formatBold(), "TX NUM","", stan,  0);
+                iPrinter.addTextInLine(formatBold(), "TX DATE","", created_at,  0);
+                iPrinter.addTextInLine(formatBold(), "ACCOUNT NUMBER","", account_number,  0);
+                iPrinter.addTextInLine(formatBold(), "CURRENCY","", currency,  0);
+                iPrinter.addTextInLine(formatBold(), "AMOUNT","", main_amount,  0);
+                iPrinter.feedLine(2);
+
+                iPrinter.addText(formatNormal(), "---------X-----------X--------------X-----------");
 
                 print();
 
             } catch (Exception e) {
                 Log.i(TAG,"Exception :"+e.getMessage());
-
                 for (StackTraceElement m : e.getStackTrace()
                 ) {
                     Log.i(TAG,"Exception :"+m);
-
                 }
             }
     }
@@ -107,31 +114,24 @@ public class PrinterUtil {
     public Resources getResources(){ return context.getResources(); }
 
     public static void print() {
-        Log.i(TAG, "print");
         try {
             iPrinter.startPrint(printerListener);
-            Log.i(TAG, "Show print");
         } catch (RemoteException e) {
             e.printStackTrace();
         } catch (Exception e) {
             Log.i(TAG, "Exception :"+e.getMessage());
-            for (StackTraceElement m : e.getStackTrace()
-            ) {
-                Log.i(TAG, "Exception :"+m);
-
-            }
         }
     }
 
    static PrinterListener printerListener = new PrinterListener.Stub() {
         @Override
         public void onFinish() throws RemoteException {
-            Log.i(TAG, "Fin impression");
+            Log.i(TAG, "printed successfully");
         }
 
         @Override
         public void onError(int error) throws RemoteException {
-            Log.i(TAG, "Error"+error);
+            Log.i(TAG, "Error" + error);
         }
     };
 

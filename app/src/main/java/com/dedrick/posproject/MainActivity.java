@@ -2,44 +2,31 @@ package com.dedrick.posproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.util.Log;
 
 import com.dedrick.poslib.POSVeri;
-import com.dedrick.utilities.PrinterUtil;
-import com.dedrick.utilities.ServiceHelper;
-import com.vfi.smartpos.deviceservice.aidl.IDeviceService;
-import com.vfi.smartpos.deviceservice.aidl.IPrinter;
 
 public class MainActivity extends AppCompatActivity {
-    IPrinter printer = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent i = new Intent(getApplicationContext(), POSVeri.class);
+        i.putExtra("bank", "UBA DRC");
+        i.putExtra("bankingAgent", "AB1");
+        i.putExtra("activityPoint", "AP1");
+        i.putExtra("transactionType", "Deposit");
+        i.putExtra("account_number", "990810004978");
+        i.putExtra("stan", "662057999505");
+        i.putExtra("created_at", "2023-01-09 10:10");
+        i.putExtra("currency", "CDF");
+        i.putExtra("main_amount", "2000");
+        i.putExtra("fee", "200");
+        i.putExtra("vat_amount", "32");
+
         startActivity(i);
-        //new POSVeri();
-        /*ServiceHelper.getInstance().initServiceHelper(getApplication());
-        ServiceHelper.getInstance().setOnServiceConnectedListener(new ServiceHelper.OnServiceConnectedListener() {
-
-            @Override
-            public void onConnected() {
-                System.out.println("Service connected");
-                PrinterUtil.printTransaction();
-
-            }
-        });*/
-
-
-
-
     }
 
 }

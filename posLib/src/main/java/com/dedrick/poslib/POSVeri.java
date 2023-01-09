@@ -1,5 +1,6 @@
 package com.dedrick.poslib;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -14,14 +15,15 @@ public class POSVeri extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+
 
         ServiceHelper.getInstance().initServiceHelper(getApplication());
         ServiceHelper.getInstance().setOnServiceConnectedListener(new ServiceHelper.OnServiceConnectedListener() {
             @Override
             public void onConnected() {
                 Log.i(TAG, "Service connected");
-                PrinterUtil.printTransaction();
-                PrinterUtil.printTransaction();
+                PrinterUtil.printTransaction(intent.getStringExtra("bank"), intent.getStringExtra("bankingAgent"), intent.getStringExtra("activityPoint"), intent.getStringExtra("transactionType"), intent.getStringExtra("account_number"), intent.getStringExtra("stan"), intent.getStringExtra("created_at"), intent.getStringExtra("currency"), intent.getStringExtra("main_amount"));
             }
         });
     }
