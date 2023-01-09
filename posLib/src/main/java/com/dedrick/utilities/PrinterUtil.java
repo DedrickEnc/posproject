@@ -72,11 +72,11 @@ public class PrinterUtil {
                 iPrinter.addText(formatNormal(), "------------------------------------------------");
                 iPrinter.feedLine(1);
 
-                iPrinter.addTextInLine(formatBold(), "BANKING AGENT","", bankingAgent+ ":"+activityPoint, 0);
+                iPrinter.addTextInLine(formatBold(), "PARTNER","", bankingAgent+ ":"+activityPoint, 0);
                 iPrinter.addTextInLine(formatBold(), "TX TYPE","", transactionType,  0);
                 iPrinter.addTextInLine(formatBold(), "TX NUM","", stan,  0);
                 iPrinter.addTextInLine(formatBold(), "TX DATE","", created_at,  0);
-                iPrinter.addTextInLine(formatBold(), "ACCOUNT NUMBER","", account_number,  0);
+                iPrinter.addTextInLine(formatBold(), "ACCT","", account_number,  0);
                 iPrinter.addTextInLine(formatBold(), "CURRENCY","", currency,  0);
                 iPrinter.addTextInLine(formatBold(), "AMOUNT","", main_amount,  0);
                 iPrinter.feedLine(2);
@@ -89,11 +89,11 @@ public class PrinterUtil {
                 iPrinter.addText(formatNormal(), "------------------------------------------------");
                 iPrinter.feedLine(1);
 
-                iPrinter.addTextInLine(formatBold(), "BANKING AGENT","", bankingAgent+ ":"+activityPoint, 0);
+                iPrinter.addTextInLine(formatBold(), "PARTNER","", bankingAgent+ ":"+activityPoint, 0);
                 iPrinter.addTextInLine(formatBold(), "TX TYPE","", transactionType,  0);
                 iPrinter.addTextInLine(formatBold(), "TX NUM","", stan,  0);
                 iPrinter.addTextInLine(formatBold(), "TX DATE","", created_at,  0);
-                iPrinter.addTextInLine(formatBold(), "ACCOUNT NUMBER","", account_number,  0);
+                iPrinter.addTextInLine(formatBold(), "ACCT","", account_number,  0);
                 iPrinter.addTextInLine(formatBold(), "CURRENCY","", currency,  0);
                 iPrinter.addTextInLine(formatBold(), "AMOUNT","", main_amount,  0);
                 iPrinter.feedLine(2);

@@ -17,7 +17,6 @@ public class POSVeri extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
 
-
         ServiceHelper.getInstance().initServiceHelper(getApplication());
         ServiceHelper.getInstance().setOnServiceConnectedListener(new ServiceHelper.OnServiceConnectedListener() {
             @Override
@@ -26,5 +25,18 @@ public class POSVeri extends AppCompatActivity {
                 PrinterUtil.printTransaction(intent.getStringExtra("bank"), intent.getStringExtra("bankingAgent"), intent.getStringExtra("activityPoint"), intent.getStringExtra("transactionType"), intent.getStringExtra("account_number"), intent.getStringExtra("stan"), intent.getStringExtra("created_at"), intent.getStringExtra("currency"), intent.getStringExtra("main_amount"));
             }
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        System.out.println("Activity is now Paused!!!!!!!!!!!!");
+        finish();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        System.out.println("Activity is now Stoped !!!!!!!!!!!!");
     }
 }
