@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra("bank", "UBA DRC");
                 i.putExtra("bankingAgent", "AB1");
                 i.putExtra("activityPoint", "AP1");
+                i.putExtra("address", "56, AV. LUSAMBO");
                 i.putExtra("transactionType", "Deposit");
                 i.putExtra("account_number", "990810004978");
                 i.putExtra("stan", "662057999505");

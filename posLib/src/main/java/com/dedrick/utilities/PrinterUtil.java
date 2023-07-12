@@ -63,39 +63,54 @@ public class PrinterUtil {
         return bundle;
     }
 
-    public static void printTransaction(String bank, String bankingAgent, String activityPoint, String transactionType, String account_number,String stan, String created_at, String currency, String main_amount){
+    public static void printTransaction(String bank, String bankingAgent, String activityPoint, String address, String transactionType, String account_number,String stan, String created_at, String currency, String main_amount){
 
         iPrinter = ServiceHelper.getInstance().getPrinter();
             try {
-
                 iPrinter.addTextInLine(formatBold(), "", bank, "", 0);
                 iPrinter.addText(formatNormal(), "------------------------------------------------");
                 iPrinter.feedLine(1);
 
-                iPrinter.addTextInLine(formatBold(), "PARTNER","", bankingAgent+ ":"+activityPoint, 0);
-                iPrinter.addTextInLine(formatBold(), "TX TYPE","", transactionType,  0);
-                iPrinter.addTextInLine(formatBold(), "TX NUM","", stan,  0);
-                iPrinter.addTextInLine(formatBold(), "TX DATE","", created_at,  0);
-                iPrinter.addTextInLine(formatBold(), "ACCT","", account_number,  0);
-                iPrinter.addTextInLine(formatBold(), "CURRENCY","", currency,  0);
-                iPrinter.addTextInLine(formatBold(), "AMOUNT","", main_amount,  0);
+                iPrinter.addTextInLine(formatBold(), "",bankingAgent,"", 0);
+                iPrinter.addTextInLine(formatBold(), "",activityPoint,"", 0);
+                iPrinter.addTextInLine(formatNormal(), "",address,"", 0);
+                iPrinter.addText(formatNormal(), "------------------------------------------------");
+                iPrinter.feedLine(1);
+
+                iPrinter.addTextInLine(formatNormal(), "",created_at,"",  0);
+                iPrinter.addTextInLine(formatBold(), "",transactionType,"",  0);
+                iPrinter.addTextInLine(formatNormal(), "Transaction Num","", stan,  0);
+                iPrinter.addTextInLine(formatNormal(), "Compte Num","", account_number,  0);
+
+                iPrinter.addTextInLine(formatBold(), "",main_amount + currency, "",  0);
+                iPrinter.addText(formatNormal(), "------------------------------------------------");
+                iPrinter.addTextInLine(formatNormal(), "Signature","", "",  0);
                 iPrinter.feedLine(2);
+
 
                 iPrinter.addText(formatNormal(), "---------X-----------X--------------X-----------");
                 iPrinter.feedLine(4);
+
 
                 iPrinter.addTextInLine(formatBold(), "", bank, "", 0);
                 iPrinter.addTextInLine(formatBold(), "", "--COPY--", "", 0);
                 iPrinter.addText(formatNormal(), "------------------------------------------------");
                 iPrinter.feedLine(1);
 
-                iPrinter.addTextInLine(formatBold(), "PARTNER","", bankingAgent+ ":"+activityPoint, 0);
-                iPrinter.addTextInLine(formatBold(), "TX TYPE","", transactionType,  0);
-                iPrinter.addTextInLine(formatBold(), "TX NUM","", stan,  0);
-                iPrinter.addTextInLine(formatBold(), "TX DATE","", created_at,  0);
-                iPrinter.addTextInLine(formatBold(), "ACCT","", account_number,  0);
-                iPrinter.addTextInLine(formatBold(), "CURRENCY","", currency,  0);
-                iPrinter.addTextInLine(formatBold(), "AMOUNT","", main_amount,  0);
+                iPrinter.addTextInLine(formatBold(), "",bankingAgent,"", 0);
+                iPrinter.addTextInLine(formatBold(), "",activityPoint,"", 0);
+                iPrinter.addTextInLine(formatNormal(), "",address,"", 0);
+                iPrinter.addText(formatNormal(), "------------------------------------------------");
+                iPrinter.feedLine(1);
+
+                iPrinter.addTextInLine(formatNormal(), "",created_at,"",  0);
+                iPrinter.addTextInLine(formatBold(), "",transactionType,"",  0);
+                iPrinter.addTextInLine(formatNormal(), "Transaction Num","", stan,  0);
+                iPrinter.addTextInLine(formatNormal(), "Compte Num","", account_number,  0);
+
+                iPrinter.addTextInLine(formatBold(), "",main_amount + currency, "",  0);
+                iPrinter.addText(formatNormal(), "------------------------------------------------");
+                iPrinter.addTextInLine(formatNormal(), "Signature","", "",  0);
                 iPrinter.feedLine(2);
 
                 iPrinter.addText(formatNormal(), "---------X-----------X--------------X-----------");
