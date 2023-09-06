@@ -63,7 +63,7 @@ public class PrinterUtil {
         return bundle;
     }
 
-    public static void printTransaction(String bank, String bankingAgent, String activityPoint, String address, String transactionType, String account_number,String stan, String created_at, String currency, String main_amount){
+    public static void printTransaction(String bank, String bankingAgent, String activityPoint, String address, String transactionType, String account_number,String stan, String created_at, String currency, String main_amount, String description, String terminalId){
 
         iPrinter = ServiceHelper.getInstance().getPrinter();
             try {
@@ -81,13 +81,16 @@ public class PrinterUtil {
                 iPrinter.addTextInLine(formatBold(), "",transactionType,"",  0);
                 iPrinter.addTextInLine(formatNormal(), "Transaction Num","", stan,  0);
                 iPrinter.addTextInLine(formatNormal(), "Compte Num","", account_number,  0);
+                iPrinter.addTextInLine(formatNormal(), "Terminal ID","", terminalId,  0);
 
                 iPrinter.addTextInLine(formatBold(), "",main_amount + currency, "",  0);
+                iPrinter.feedLine(3);
+
+                iPrinter.addTextInLine(formatBold(), "",description, "",  0);
+
                 iPrinter.addText(formatNormal(), "------------------------------------------------");
                 iPrinter.addTextInLine(formatNormal(), "Signature","", "",  0);
-                iPrinter.feedLine(2);
-
-
+                iPrinter.feedLine(3);
                 iPrinter.addText(formatNormal(), "---------X-----------X--------------X-----------");
                 iPrinter.feedLine(4);
 
@@ -107,8 +110,13 @@ public class PrinterUtil {
                 iPrinter.addTextInLine(formatBold(), "",transactionType,"",  0);
                 iPrinter.addTextInLine(formatNormal(), "Transaction Num","", stan,  0);
                 iPrinter.addTextInLine(formatNormal(), "Compte Num","", account_number,  0);
+                iPrinter.addTextInLine(formatNormal(), "Terminal ID","", terminalId,  0);
 
                 iPrinter.addTextInLine(formatBold(), "",main_amount + currency, "",  0);
+                iPrinter.feedLine(3);
+
+                iPrinter.addTextInLine(formatBold(), "",description, "",  0);
+
                 iPrinter.addText(formatNormal(), "------------------------------------------------");
                 iPrinter.addTextInLine(formatNormal(), "Signature","", "",  0);
                 iPrinter.feedLine(2);

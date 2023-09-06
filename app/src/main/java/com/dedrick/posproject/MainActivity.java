@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra("main_amount", "2000");
                 i.putExtra("fee", "200");
                 i.putExtra("vat_amount", "32");
+                i.putExtra("description", "Test de la transaction");
+                i.putExtra("terminalId", "adFxxHsssu");
 
                 startActivity(i);
             }

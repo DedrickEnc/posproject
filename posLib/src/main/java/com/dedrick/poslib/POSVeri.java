@@ -23,14 +23,14 @@ public class POSVeri extends AppCompatActivity {
         Intent intent = getIntent();
 
         if(ServiceHelper.getInstance().getDeviceService() != null){
-            PrinterUtil.printTransaction(intent.getStringExtra("bank"), intent.getStringExtra("bankingAgent"), intent.getStringExtra("activityPoint"),intent.getStringExtra("address"), intent.getStringExtra("transactionType"), intent.getStringExtra("account_number"), intent.getStringExtra("stan"), intent.getStringExtra("created_at"), intent.getStringExtra("currency"), intent.getStringExtra("main_amount"));
+            PrinterUtil.printTransaction(intent.getStringExtra("bank"), intent.getStringExtra("bankingAgent"), intent.getStringExtra("activityPoint"),intent.getStringExtra("address"), intent.getStringExtra("transactionType"), intent.getStringExtra("account_number"), intent.getStringExtra("stan"), intent.getStringExtra("created_at"), intent.getStringExtra("currency"), intent.getStringExtra("main_amount"), intent.getStringExtra("description"), intent.getStringExtra("terminalId"));
         }else{
             ServiceHelper.getInstance().initServiceHelper(getApplication());
             ServiceHelper.getInstance().setOnServiceConnectedListener(new ServiceHelper.OnServiceConnectedListener() {
                 @Override
                 public void onConnected() {
                     Log.i(TAG, "Service connected");
-                    PrinterUtil.printTransaction(intent.getStringExtra("bank"), intent.getStringExtra("bankingAgent"), intent.getStringExtra("activityPoint"),intent.getStringExtra("address"), intent.getStringExtra("transactionType"), intent.getStringExtra("account_number"), intent.getStringExtra("stan"), intent.getStringExtra("created_at"), intent.getStringExtra("currency"), intent.getStringExtra("main_amount"));
+                    PrinterUtil.printTransaction(intent.getStringExtra("bank"), intent.getStringExtra("bankingAgent"), intent.getStringExtra("activityPoint"),intent.getStringExtra("address"), intent.getStringExtra("transactionType"), intent.getStringExtra("account_number"), intent.getStringExtra("stan"), intent.getStringExtra("created_at"), intent.getStringExtra("currency"), intent.getStringExtra("main_amount"), intent.getStringExtra("description"), intent.getStringExtra("terminalId"));
                 }
             });
         }
