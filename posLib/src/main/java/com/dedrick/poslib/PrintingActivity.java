@@ -21,14 +21,26 @@ public class PrintingActivity extends AppCompatActivity {
         Intent intent = getIntent();
         POSPrinter posPrinter = null;
 
-        if(intent.getStringExtra("bank").equalsIgnoreCase("UBA DRC")){
-            posPrinter = new X990(getApplication());
+        String bnk = intent.getStringExtra("bank");
 
-        }else{
-            posPrinter = new F20(getApplication());
+        switch (bnk) {
+            case "X990":
+                posPrinter = new X990(getApplication());
+                break;
+            case "F20":
+                posPrinter = new F20(getApplication());
+                break;
+            case "NL":
+                posPrinter = new Newland(getApplication());
+                break;
         }
 
-        posPrinter.print(intent.getStringExtra("bank"), intent.getStringExtra("bankingAgent"), intent.getStringExtra("activityPoint"),intent.getStringExtra("address"), intent.getStringExtra("transactionType"), intent.getStringExtra("account_number"), intent.getStringExtra("stan"), intent.getStringExtra("created_at"), intent.getStringExtra("currency"), intent.getStringExtra("main_amount"), intent.getStringExtra("description"), intent.getStringExtra("terminalId"));
+        if (posPrinter != null) {
+            posPrinter.print(intent.getStringExtra("bank"), intent.getStringExtra("bankingAgent"), intent.getStringExtra("activityPoint"), intent.getStringExtra("address"), intent.getStringExtra("transactionType"), intent.getStringExtra("account_number"), intent.getStringExtra("stan"), intent.getStringExtra("created_at"), intent.getStringExtra("currency"), intent.getStringExtra("main_amount"), intent.getStringExtra("description"), intent.getStringExtra("terminalId"));
+        }else{
+            System.out.println("POS Printer not null");
+        }
+
     }
 
     @Override
