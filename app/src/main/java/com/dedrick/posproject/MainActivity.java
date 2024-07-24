@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.dedrick.poslib.POSVeri;
+import com.dedrick.poslib.PrintingActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), POSVeri.class);
+                Intent i = new Intent(getApplicationContext(), PrintingActivity.class);
                 i.putExtra("bank", "UBA DRC");
                 i.putExtra("bankingAgent", "AB1");
                 i.putExtra("activityPoint", "AP1");
