@@ -32,12 +32,14 @@ android {
 }
 
 dependencies {
-    implementation files('libs/Newland-EMVL3-4.3.7.jar')
-    implementation files('libs/Newland-NSDK-2.3.2.jar')
+//    implementation fileTree(dir: 'libs', ['*.jar'])
+    implementation fileTree(include: ['.jar', '.aar'], dir: 'libs')
+
+//    implementation files('libs/Newland-NSDK-2.3.2.jar')
+//    implementation files('libs/Newland-EMVL3-4.3.7.jar')
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
-    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
 }

@@ -2,6 +2,7 @@ package com.dedrick.poslib;
 
 import android.app.Application;
 
+
 public class Newland extends POSPrinter {
     Newland(Application a){
         super(a);
@@ -12,5 +13,12 @@ public class Newland extends POSPrinter {
         super.print(bank, bankingAgent, activityPoint, address, transactionType, account_number, stan, created_at, currency, main_amount, description, terminalId);
 
         System.out.println("Printing on Newland");
+
+
+
+
+
+
+
     }
 }
