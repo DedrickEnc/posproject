@@ -3,16 +3,12 @@ package com.dedrick.poslib;
 import android.app.Application;
 
 
-import com.newland.nsdk.core.api.internal.NSDKModuleManager;
-import com.newland.nsdk.core.api.common.utils.ISOUtils;
 import com.newland.nsdk.esc.api.ESCPrinter;
 import com.newland.nsdk.esc.common.ESCPrinterException;
 import com.newland.nsdk.esc.internal.ESCPrinterImpl;
 import java.nio.charset.StandardCharsets;
 
 public class Newland extends POSPrinter {
-    private ESCPrinter escPrinter = ESCPrinterImpl.getInstance();
-
     Newland(Application a){
         super(a);
         this.app = a;
@@ -20,10 +16,7 @@ public class Newland extends POSPrinter {
     @Override
     protected void print(String bank, String bankingAgent, String activityPoint, String address, String transactionType, String account_number, String stan, String created_at, String currency, String main_amount, String description, String terminalId) {
         super.print(bank, bankingAgent, activityPoint, address, transactionType, account_number, stan, created_at, currency, main_amount, description, terminalId);
-        setPrintFont();
-    }
-
-    private void setPrintFont() {
+        ESCPrinter escPrinter = ESCPrinterImpl.getInstance();
         try {
             escPrinter.exec(ESCCommand.RESET);
             escPrinter.exec(ESCCommand.CHINESE_DOUBLE_WIDTH);
