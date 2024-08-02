@@ -21,9 +21,9 @@ public class PrintingActivity extends AppCompatActivity {
         Intent intent = getIntent();
         POSPrinter posPrinter = null;
 
-        String bnk = intent.getStringExtra("bank");
+        String model = intent.getStringExtra("posModel");
 
-        switch (bnk) {
+        switch (model) {
             case "X990":
                 posPrinter = new X990(getApplication());
                 break;

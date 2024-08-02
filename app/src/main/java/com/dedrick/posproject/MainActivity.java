@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), PrintingActivity.class);
-//                i.putExtra("bank", "UBA DRC");
-                i.putExtra("bank", "NL");
+                i.putExtra("posModel", "NL");
+                i.putExtra("bank", "UBA DRC");
                 i.putExtra("bankingAgent", "AB1");
                 i.putExtra("activityPoint", "AP1");
                 i.putExtra("address", "56, AV. LUSAMBO");
@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra("account_number", "990810004978");
                 i.putExtra("stan", "662057999505");
                 i.putExtra("created_at", "2023-01-09 10:10");
-                i.putExtra("currency", "CDF");
-                i.putExtra("main_amount", "2000");
+                i.putExtra("currency", "USD");
+                i.putExtra("main_amount", "20000");
                 i.putExtra("fee", "200");
                 i.putExtra("vat_amount", "32");
                 i.putExtra("description", "Test de la transaction");
