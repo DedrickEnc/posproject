@@ -49,9 +49,14 @@ public class ESCCommand {
     public static final byte[] VER_DOUBLE = new byte[] {0x1d, 0x21, 1};
     public static final byte[] VER_TRIPLE = new byte[] {0x1d, 0x21, 2};
 
-    public static final byte[] ABSOLUTE_POSITION_10 = new byte[] {0x1b, 0x24, (byte) 10, 0};
+    public static final byte[] ABSOLUTE_POSITION_10 = new byte[] {0x1b, 0x24, (byte) -10, 0};
+    public static final byte[] ABSOLUTE_POSITION_20 = new byte[] {0x1b, 0x24, (byte) 20, 0};
+    // ABSOLUTE_POSITION -10
+
     public static final byte[] ABSOLUTE_POSITION_200 = new byte[] {0x1b, 0x24, (byte) 200, 0};
     public static final byte[] RELATION_POSITION_60 = new byte[] {0x1b, 0x5c, 60, 0};
+    public static final byte[] RELATION_POSITION_10 = new byte[] {0x1b, 0x5c, 20, 0};
+    public static final byte[] RELATION_POSITION_100 = new byte[] {0x1b, 0x5c, 100, 0};
     public static final byte[] RELATION_POSITION_0 = new byte[] {0x1b, 0x5c, 0, 0};
 
     public static final byte[] HIR_NONE = {0x1d, 0x48,0};
