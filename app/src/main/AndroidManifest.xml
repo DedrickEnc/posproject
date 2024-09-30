@@ -27,6 +27,5 @@
 <!--        <activity android:name="com.dedrick.poslib.POSVeri" android:label="Impression"></activity>-->
 
     </application>
-    <uses-permission android:name="android.permission.MANAGE_NEWLAND"/>
 
 </manifest>
