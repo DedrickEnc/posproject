@@ -1,6 +1,7 @@
 package com.dedrick.poslib;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +18,7 @@ public class PrintingActivity extends AppCompatActivity {
         Intent intent = getIntent();
         POSPrinter posPrinter = null;
 
-        String model = intent.getStringExtra("posModel");
+        String model = Build.MODEL;
 
         switch (model) {
             case "X990":
@@ -26,7 +27,7 @@ public class PrintingActivity extends AppCompatActivity {
             case "F20":
                 posPrinter = new F20(getApplication());
                 break;
-            case "NL950":
+            case "N950S":
                 posPrinter = new Newland950(getApplication());
                 break;
         }

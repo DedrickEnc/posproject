@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), PrintingActivity.class);
-                i.putExtra("posModel", "NL950");
+                i.putExtra("posModel", "X990");
                 i.putExtra("bank", "UBA DRC");
                 i.putExtra("bankingAgent", "AB1");
                 i.putExtra("activityPoint", "AP1");
