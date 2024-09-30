@@ -120,6 +120,13 @@ public class Newland950 extends POSPrinter {
             escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
             escPrinter.exec((main_amount + currency + "\n").getBytes(StandardCharsets.UTF_8));
 
+            escPrinter.exec(ESCCommand.RESET);
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.COMPRESS_FONT);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_10);
+            escPrinter.exec((description + "\n").getBytes(StandardCharsets.UTF_8));
+
             escPrinter.exec(new byte[] {0x1B, 0x45, 0x01});
             escPrinter.exec(ESCCommand.DIVIDER);
 
