@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.dedrick.poslib.POSVeri;
+import com.dedrick.poslib.PrintingActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), POSVeri.class);
+                Intent i = new Intent(getApplicationContext(), PrintingActivity.class);
+                i.putExtra("posModel", "X990");
                 i.putExtra("bank", "UBA DRC");
                 i.putExtra("bankingAgent", "AB1");
                 i.putExtra("activityPoint", "AP1");
@@ -34,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra("account_number", "990810004978");
                 i.putExtra("stan", "662057999505");
                 i.putExtra("created_at", "2023-01-09 10:10");
-                i.putExtra("currency", "CDF");
-                i.putExtra("main_amount", "2000");
+                i.putExtra("currency", "USD");
+                i.putExtra("main_amount", "20000");
                 i.putExtra("fee", "200");
                 i.putExtra("vat_amount", "32");
                 i.putExtra("description", "Test de la transaction");

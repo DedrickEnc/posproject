@@ -23,8 +23,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name="com.dedrick.poslib.POSVeri" android:label="Impression"></activity>
-
+        <activity android:name="com.dedrick.poslib.PrintingActivity" android:label="Impression"></activity>
+        <!--        <activity android:name="com.dedrick.poslib.POSVeri" android:label="Impression"></activity>-->
     </application>
 
 </manifest>
