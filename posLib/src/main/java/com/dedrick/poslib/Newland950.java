@@ -31,11 +31,110 @@ public class Newland950 extends POSPrinter {
     @Override
     protected void print(String bank, String bankingAgent, String activityPoint, String address, String transactionType, String account_number,String stan, String created_at, String currency, String main_amount, String description, String terminalId){
         printInvoice(bank, bankingAgent, activityPoint, address, transactionType, account_number, stan, created_at, currency, main_amount, description, terminalId);
-        printInvoice(bank, bankingAgent, activityPoint, address, transactionType, account_number, stan, created_at, currency, main_amount, description, terminalId);
+        //printInvoice(bank, bankingAgent, activityPoint, address, transactionType, account_number, stan, created_at, currency, main_amount, description, terminalId);
     }
 
     private void printInvoice(String bank, String bankingAgent, String activityPoint, String address, String transactionType, String account_number,String stan, String created_at, String currency, String main_amount, String description, String terminalId) {
         try {
+            printLogo();
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.COMPRESS_FONT);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_10);
+            escPrinter.exec((bank + "\n").getBytes(StandardCharsets.UTF_8));
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.COMPRESS_FONT);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_10);
+            escPrinter.exec((bankingAgent + "\n").getBytes(StandardCharsets.UTF_8));
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.COMPRESS_FONT);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_10);
+            escPrinter.exec((activityPoint + "\n").getBytes(StandardCharsets.UTF_8));
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.COMPRESS_FONT);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_10);
+            escPrinter.exec((address + "\n").getBytes(StandardCharsets.UTF_8));
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.COMPRESS_FONT);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_10);
+            escPrinter.exec((created_at + "\n").getBytes(StandardCharsets.UTF_8));
+
+            escPrinter.exec(ESCCommand.RESET);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_100);
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.DOUBLE_HEIGHT);
+            escPrinter.exec(ESCCommand.FONT_MIXA);
+            escPrinter.exec((transactionType.toUpperCase() + "\n").getBytes(StandardCharsets.UTF_8));
+
+            escPrinter.exec("\n".getBytes(StandardCharsets.UTF_8));
+            escPrinter.exec(ESCCommand.NORMAL_FONT_MODE);
+            escPrinter.exec(ESCCommand.LINE_SPACING_10);
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_10);
+            escPrinter.exec("TRANSACTION NUM\n".getBytes(StandardCharsets.UTF_8));
+
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.NORMAL_FONT_MODE);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_60);
+            escPrinter.exec((stan + "\n").getBytes(StandardCharsets.UTF_8));
+
+            escPrinter.exec(ESCCommand.RESET);
+            escPrinter.exec(ESCCommand.NORMAL_FONT_MODE);
+            escPrinter.exec(ESCCommand.LINE_SPACING_10);
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_10);
+            escPrinter.exec("COMPTE NUM\n".getBytes(StandardCharsets.UTF_8));
+
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.NORMAL_FONT_MODE);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_60);
+            escPrinter.exec((account_number + "\n").getBytes(StandardCharsets.UTF_8));
+
+            escPrinter.exec(ESCCommand.RESET);
+            escPrinter.exec(ESCCommand.NORMAL_FONT_MODE);
+            escPrinter.exec(ESCCommand.LINE_SPACING_10);
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_10);
+            escPrinter.exec("TERMINAL ID\n".getBytes(StandardCharsets.UTF_8));
+
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.NORMAL_FONT_MODE);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_60);
+            escPrinter.exec((terminalId + "\n").getBytes(StandardCharsets.UTF_8));
+
+            escPrinter.exec(ESCCommand.RESET);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_100);
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.DOUBLE_HEIGHT);
+            escPrinter.exec(ESCCommand.FONT_MIXA);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec((main_amount + currency + "\n").getBytes(StandardCharsets.UTF_8));
+
+            escPrinter.exec(ESCCommand.RESET);
+            escPrinter.exec(ESCCommand.BOLD);
+            escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
+            escPrinter.exec(ESCCommand.COMPRESS_FONT);
+            escPrinter.exec(ESCCommand.RELATION_POSITION_10);
+            escPrinter.exec((description + "\n").getBytes(StandardCharsets.UTF_8));
+
+            escPrinter.exec(new byte[] {0x1B, 0x45, 0x01});
+            escPrinter.exec(ESCCommand.DIVIDER);
+
+            escPrinter.exec(ESCCommand.RESET);
+            escPrinter.exec("Signature\n".getBytes(StandardCharsets.UTF_8));
+
+            escPrinter.exec(new byte[] {0x1B, 0x45, 0x01});
+            escPrinter.exec(ESCCommand.DIVIDER);
             printLogo();
             escPrinter.exec(ESCCommand.BOLD);
             escPrinter.exec(ESCCommand.UNDERLINE_MODE_OFF);
