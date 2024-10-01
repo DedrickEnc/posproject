@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 rootProject.name = "PosProject"
 include ':app'
 include ':posLib'
+include(":newlandlib")
+
