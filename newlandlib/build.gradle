@@ -1,2 +1,2 @@
 configurations.maybeCreate("default")
-artifacts.add("default", file('Newland-NSDK-ESCPrinter-1.0.1.aar'))
+artifacts.add("default", file('Newland-NSDK-2.9.2.aar'))

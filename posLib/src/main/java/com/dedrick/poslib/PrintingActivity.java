@@ -28,7 +28,7 @@ public class PrintingActivity extends AppCompatActivity {
                 posPrinter = new F20(getApplication());
                 break;
             case "N950S":
-                posPrinter = new Newland950(getApplication());
+                posPrinter = new Newland950(getApplication(), this);
                 break;
         }
 
