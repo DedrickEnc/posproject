@@ -1,6 +1,9 @@
+
 plugins {
     id 'com.android.library'
 }
+
+apply plugin: 'com.kezong.fat-aar'
 
 android {
     namespace 'com.dedrick.poslib'
@@ -41,6 +44,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-    implementation project(":newlandlib")
+    embed project(":newlandlib")
 
 }
